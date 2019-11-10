@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AwesomeBlog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <%= render "layouts/header" %>
+  <div class="container p-3">
+    <% if flash.any? %>
+      <% flash.each do |type1,msg1| %>
+        <div class="alert alert-<%= type1 %>">
+          <div><%= msg1 %></div>
+        </div>
+        <% end %>
+      <% end %>
+    <%= yield %>
+
+    <%= debug session[:user_id] if Rails.env == "development" %>
+  </div>
+  <%= render "layouts/footer" %>
+  </body>
+</html>

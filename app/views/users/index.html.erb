@@ -1,0 +1,18 @@
+<h1 class="text-center mb-3">Users</h1>
+
+<div class="paginate text-center">
+  <%= will_paginate %>
+</div>
+
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="col-6">
+      <div class="media mb-3">
+        <%=gravatar_for(user) %>
+        <div class="media-body">
+          <h5 class="pl-2 font-weight-bold"><%= link_to user.name,user %></h5>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

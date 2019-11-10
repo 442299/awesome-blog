@@ -1,0 +1,12 @@
+<% @microposts.each do |micropost| %>
+<li class="media mb-4">
+  <div class="mr-2">
+    <%= link_to gravatar_for(micropost.user), user_url(micropost.user) %>
+  </div>
+  <div class="media-body">
+    <h5><%= link_to micropost.user.name,micropost.user %></h5>
+    <div><%= micropost.content %></div>
+    <small class="text-muted">Posted<%= time_ago_in_words(micropost.created_at %>ago</small>
+  </div>
+</li>
+<% end %>
